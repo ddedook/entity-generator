@@ -7,9 +7,12 @@
     <groupId>com.shzisg</groupId>
     <artifactId>entity-generator</artifactId>
     <version>1.0.0</version>
+    <packaging>maven-plugin</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>

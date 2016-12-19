@@ -1,0 +1,66 @@
+[
+  {
+    "columnType": "VARCHAR2",
+    "mappedType": "String"
+  },
+  {
+    "columnType": "VARCHAR",
+    "mappedType": "String"
+  },
+  {
+    "columnType": "TEXT",
+    "mappedType": "String"
+  },
+  {
+    "columnType": "CHAR",
+    "mappedType": "char"
+  },
+  {
+    "columnType": "DECIMAL",
+    "mappedType": "BigDecimal"
+  },
+  {
+    "columnType": "INT",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "TINYINT",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "BIT",
+    "mappedType": "boolean"
+  },
+  {
+    "columnType": "NUMBER",
+    "columnSize": 20,
+    "decimalDigit": true,
+    "mappedType": "BigDecimal"
+  },
+  {
+    "columnType": "NUMBER",
+    "columnSize": 1,
+    "decimalDigit": false,
+    "mappedType": "boolean"
+  },
+  {
+    "columnType": "DATE",
+    "mappedType": "java.time.LocalDate"
+  },
+  {
+    "columnType": "DATETIME",
+    "mappedType": "java.time.LocalDateTime"
+  },
+  {
+    "columnType": "TIMESTAMP",
+    "mappedType": "java.time.LocalDateTime"
+  },
+  {
+    "columnType": "BLOB",
+    "mappedType": "byte[]"
+  },
+  {
+    "columnType": "DEFAULT",
+    "mappedType": "String"
+  }
+]
