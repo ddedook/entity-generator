@@ -7,10 +7,7 @@ import com.shzisg.generator.output.EntityDefine;
 import com.shzisg.generator.output.PropertyDefine;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DatabaseReader {
@@ -25,7 +22,12 @@ public class DatabaseReader {
         Connection conn = null;
         try {
             Class.forName(domain.getDriver());
-            conn = DriverManager.getConnection(domain.getUrl(), domain.getUsername(), domain.getPassword());
+            Properties info = new Properties();
+            info.setProperty("user", domain.getUsername());
+            info.setProperty("password", domain.getPassword());
+            info.setProperty("remarks", "true");
+            info.setProperty("useInformationSchema", "true");
+            conn = DriverManager.getConnection(domain.getUrl(), info);
             DatabaseMetaData metaData = conn.getMetaData();
             ResultSet tableSet = metaData.getTables(null, domain.getSchema(), "%", new String[]{"TABLE"});
             Map<String, TableConfig> tablesConfig = domain.getTables()
@@ -44,9 +46,8 @@ public class DatabaseReader {
                 entityDefine.setTableConfig(tableConfig);
                 tableConfig.setName(tableName);
                 if (tableConfig.getComment() == null) {
-                    tableConfig.setComment(tableSet.getString(5));
+                    tableConfig.setComment(tableSet.getString("REMARKS"));
                 }
-
                 // get primary columns
                 ResultSet primarySet = metaData.getPrimaryKeys(null, domain.getSchema(), tableName);
                 List<String> primaryColumns = new ArrayList<>();
@@ -74,7 +75,7 @@ public class DatabaseReader {
                         columnConfig.setPrimary(primaryColumns.contains(columnName));
                     }
                     if (columnConfig.isNullable() == null) {
-                        columnConfig.setNullable(columnSet.getString("NULLABLE").equals("0"));
+                        columnConfig.setNullable(columnSet.getString("NULLABLE").equals("1"));
                     }
                     if (columnConfig.getComment() == null) {
                         columnConfig.setComment(columnSet.getString("REMARKS"));

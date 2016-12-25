@@ -9,6 +9,7 @@ public class DatabaseProcessor implements Processor {
   public DomainDefine process(DomainDefine domainDefine) {
     for (EntityDefine entityDefine : domainDefine.getEntities()) {
       entityDefine.addImport("javax.persistence.*");
+      entityDefine.addImport("java.io.Serializable");
       entityDefine.addDecorator("@Table(name = \"" + entityDefine.getTableConfig().getName() + "\")");
       entityDefine.getProperties().forEach(props -> {
         if (props.getColumnConfig().isPrimary()) {

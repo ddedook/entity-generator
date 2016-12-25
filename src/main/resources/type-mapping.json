@@ -13,7 +13,7 @@
   },
   {
     "columnType": "CHAR",
-    "mappedType": "char"
+    "mappedType": "String"
   },
   {
     "columnType": "DECIMAL",
