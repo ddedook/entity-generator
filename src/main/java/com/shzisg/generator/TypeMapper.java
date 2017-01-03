@@ -67,7 +67,7 @@ public class TypeMapper {
     }
 
     public String toJavaType(String type, int columnSize, int decimalDigits) {
-        List<Mapper> mapperList = this.mappers.get(type);
+        List<Mapper> mapperList = this.mappers.get(type.toUpperCase());
         if (mapperList == null || mapperList.isEmpty()) {
             return this.mappers.get("DEFAULT").get(0).getMappedType();
         }

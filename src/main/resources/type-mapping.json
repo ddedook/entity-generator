@@ -24,8 +24,40 @@
     "mappedType": "int"
   },
   {
+    "columnType": "INT UNSIGNED",
+    "mappedType": "int"
+  },
+  {
     "columnType": "TINYINT",
     "mappedType": "int"
+  },
+  {
+    "columnType": "TINYINT UNSIGNED",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "SMALLINT",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "SMALLINT UNSIGNED",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "MEDIUMINT",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "MEDIUMINT UNSIGNED",
+    "mappedType": "int"
+  },
+  {
+    "columnType": "BIGINT",
+    "mappedType": "java.math.BigInteger"
+  },
+  {
+    "columnType": "BIGINT UNSIGNED",
+    "mappedType": "java.math.BigInteger"
   },
   {
     "columnType": "BIT",
@@ -46,6 +78,10 @@
   {
     "columnType": "DATE",
     "mappedType": "java.time.LocalDate"
+  },
+  {
+    "columnType": "TIME",
+    "mappedType": "java.time.LocalTime"
   },
   {
     "columnType": "DATETIME",
