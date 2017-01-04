@@ -15,7 +15,7 @@ public class DatabaseProcessor implements Processor {
       entityDefine.getProperties().forEach(props -> {
         if (props.getColumnConfig().isPrimary()) {
           props.addDecorator("@Id")
-            .addDecorator("@Column(name = \"" + props.getName() + "\")")
+            .addDecorator("@Column(name = \"" + props.getColumnConfig().getName() + "\")")
             .addDecorator("@GeneratedValue(generator = \"uuid\")");
         } else if (!props.getColumnConfig().isExtend()) {
           props.addDecorator("@Column(name = \"" + props.getColumnConfig().getName() + "\")");
