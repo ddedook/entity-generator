@@ -8,6 +8,7 @@ public class DatabaseProcessor implements Processor {
   @Override
   public DomainDefine process(DomainDefine domainDefine) {
     for (EntityDefine entityDefine : domainDefine.getEntities()) {
+      System.out.println("[INFO] Generate " + entityDefine.getTableConfig().getName() + " ===> " + entityDefine.getName());
       entityDefine.addImport("javax.persistence.*");
       entityDefine.addImport("java.io.Serializable");
       entityDefine.addDecorator("@Table(name = \"" + entityDefine.getTableConfig().getName() + "\")");
