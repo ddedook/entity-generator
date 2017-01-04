@@ -5,7 +5,7 @@ import java.util.List;
 public class TableConfig {
     private String name;
     private String comment;
-    private String suffix = "Entity";
+    private String suffix;
     private List<ColumnConfig> columns;
     private List<ColumnConfig> extend;
 

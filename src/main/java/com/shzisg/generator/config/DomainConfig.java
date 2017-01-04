@@ -11,7 +11,9 @@ public class DomainConfig {
     private String password;
     private String domainPackage;
     private boolean all = true;
+    private String suffix = "Entity";
     private List<TableConfig> tables = new ArrayList<>();
+    private List<String> defaultIgnores = new ArrayList<>();
 
     public String getUrl() {
         return url;
@@ -75,5 +77,21 @@ public class DomainConfig {
 
     public void setTables(List<TableConfig> tables) {
         this.tables = tables;
+    }
+    
+    public List<String> getDefaultIgnores() {
+        return defaultIgnores;
+    }
+    
+    public void setDefaultIgnores(List<String> defaultIgnores) {
+        this.defaultIgnores = defaultIgnores;
+    }
+    
+    public String getSuffix() {
+        return suffix;
+    }
+    
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
     }
 }

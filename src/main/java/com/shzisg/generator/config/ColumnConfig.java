@@ -6,7 +6,7 @@ public class ColumnConfig {
     private String type;
     private boolean useWrapper = false;
     private String wrapperType;
-    private boolean ignore = false;
+    private Boolean ignore;
     private Boolean nullable;
     private boolean enumAsString = true;
     private Boolean isPrimary;
@@ -18,8 +18,7 @@ public class ColumnConfig {
     }
 
     public ColumnConfig(String name) {
-        this.name = name;
-        this.alias = name;
+        setName(name);
     }
 
     public String getName() {
@@ -65,11 +64,11 @@ public class ColumnConfig {
         this.wrapperType = wrapperType;
     }
 
-    public boolean isIgnore() {
+    public Boolean isIgnore() {
         return ignore;
     }
 
-    public void setIgnore(boolean ignore) {
+    public void setIgnore(Boolean ignore) {
         this.ignore = ignore;
     }
 

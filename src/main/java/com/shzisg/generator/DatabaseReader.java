@@ -43,6 +43,7 @@ public class DatabaseReader {
                 EntityDefine entityDefine = new EntityDefine();
                 entityDefine.setPackagePath(domain.getDomainPackage());
                 TableConfig tableConfig = tablesConfig.getOrDefault(tableName, new TableConfig());
+                tableConfig.setSuffix(domain.getSuffix());
                 entityDefine.setTableConfig(tableConfig);
                 tableConfig.setName(tableName);
                 if (tableConfig.getComment() == null) {
@@ -79,6 +80,9 @@ public class DatabaseReader {
                     }
                     if (columnConfig.getComment() == null) {
                         columnConfig.setComment(columnSet.getString("REMARKS"));
+                    }
+                    if (columnConfig.isIgnore() == null) {
+                        columnConfig.setIgnore(domain.getDefaultIgnores().contains(columnName));
                     }
                     columnConfig.setExtend(false);
                     PropertyDefine propDef = new PropertyDefine();
