@@ -97,6 +97,9 @@ public class DatabaseReader {
                         if (columnConfig.isNullable() == null) {
                             columnConfig.setNullable(true);
                         }
+                        if (columnConfig.isPrimary() == null) {
+                            columnConfig.setPrimary(false);
+                        }
                         PropertyDefine propDef = new PropertyDefine();
                         propDef.setColumnConfig(columnConfig);
                         columnConfig.setExtend(true);
