@@ -91,6 +91,12 @@ public class DatabaseReader {
                 }
                 if (tableConfig.getExtend() != null) {
                     for (ColumnConfig columnConfig : tableConfig.getExtend()) {
+                        if (columnConfig.isIgnore() == null) {
+                            columnConfig.setIgnore(false);
+                        }
+                        if (columnConfig.isNullable() == null) {
+                            columnConfig.setNullable(true);
+                        }
                         PropertyDefine propDef = new PropertyDefine();
                         propDef.setColumnConfig(columnConfig);
                         columnConfig.setExtend(true);

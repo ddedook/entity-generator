@@ -9,8 +9,8 @@ public class ColumnConfig {
     private Boolean ignore;
     private Boolean nullable;
     private boolean enumAsString = true;
-    private Boolean isPrimary;
-    private String comment;
+    private Boolean isPrimary = false;
+    private String comment = "";
     private boolean isExtend;
 
     public ColumnConfig() {
