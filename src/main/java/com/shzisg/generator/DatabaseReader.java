@@ -78,7 +78,7 @@ public class DatabaseReader {
                     if (columnConfig.isNullable() == null) {
                         columnConfig.setNullable(columnSet.getString("NULLABLE").equals("1"));
                     }
-                    if (columnConfig.getComment() == null) {
+                    if (columnConfig.getComment() == null || columnConfig.getComment().isEmpty()) {
                         columnConfig.setComment(columnSet.getString("REMARKS"));
                     }
                     if (columnConfig.isIgnore() == null) {
