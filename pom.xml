@@ -6,7 +6,7 @@
 
     <groupId>com.shzisg</groupId>
     <artifactId>entity-generator</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <packaging>maven-plugin</packaging>
 
     <properties>
@@ -14,6 +14,14 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>user-releases</id>
+            <name>User Project Release</name>
+            <url>http://139.196.152.218:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>

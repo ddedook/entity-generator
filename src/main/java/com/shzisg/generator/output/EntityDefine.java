@@ -34,7 +34,8 @@ public class EntityDefine {
   
   public boolean addImport(String type) {
     if ((type.startsWith("java.io.") && !type.equals("java.io.Serializable"))
-      || type.startsWith("java.math.")
+      || (type.startsWith("java.math.")
+      && (!type.equals("java.math.BigDecimal") || !type.equals("java.math.BigInteger")))
       || type.startsWith("java.lang.")
       || this.imports.contains(type)) {
       return true;

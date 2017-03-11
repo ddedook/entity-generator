@@ -17,7 +17,11 @@
   },
   {
     "columnType": "DECIMAL",
-    "mappedType": "BigDecimal"
+    "mappedType": "java.math.BigDecimal"
+  },
+  {
+    "columnType": "DECIMAL UNSIGNED",
+    "mappedType": "java.math.BigDecimal"
   },
   {
     "columnType": "INT",
