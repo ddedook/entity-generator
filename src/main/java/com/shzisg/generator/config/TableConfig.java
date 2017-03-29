@@ -4,6 +4,7 @@ import java.util.List;
 
 public class TableConfig {
     private String name;
+    private String className;
     private String comment;
     private String suffix;
     private List<ColumnConfig> columns;
@@ -16,7 +17,15 @@ public class TableConfig {
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    public String getClassName() {
+        return className;
+    }
+    
+    public void setClassName(String className) {
+        this.className = className;
+    }
+    
     public String getComment() {
         return comment;
     }

@@ -16,7 +16,7 @@ public class NormalProcessor implements Processor {
     @Override
     public DomainDefine process(DomainDefine domainDefine) {
         for (EntityDefine define : domainDefine.getEntities()) {
-            define.setName(toCamel(define.getTableConfig().getName(), false) + define.getTableConfig().getSuffix());
+            define.setName(toCamel(define.getTableConfig().getClassName(), false) + define.getTableConfig().getSuffix());
             for (PropertyDefine prop : define.getProperties()) {
                 ColumnConfig config = prop.getColumnConfig();
                 prop.setName(toCamel(config.getName(), true));

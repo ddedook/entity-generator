@@ -12,6 +12,8 @@ public class DomainConfig {
     private String domainPackage;
     private boolean all = true;
     private String suffix = "Entity";
+    private String tablePrefix = "";
+    private String ignorePattern = "";
     private List<TableConfig> tables = new ArrayList<>();
     private List<String> defaultIgnores = new ArrayList<>();
 
@@ -93,5 +95,21 @@ public class DomainConfig {
     
     public void setSuffix(String suffix) {
         this.suffix = suffix;
+    }
+    
+    public String getTablePrefix() {
+        return tablePrefix;
+    }
+    
+    public void setTablePrefix(String tablePrefix) {
+        this.tablePrefix = tablePrefix;
+    }
+    
+    public String getIgnorePattern() {
+        return ignorePattern;
+    }
+    
+    public void setIgnorePattern(String ignorePattern) {
+        this.ignorePattern = ignorePattern;
     }
 }

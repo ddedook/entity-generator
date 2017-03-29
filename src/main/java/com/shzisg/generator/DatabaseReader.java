@@ -8,6 +8,8 @@ import com.shzisg.generator.output.PropertyDefine;
 
 import java.sql.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class DatabaseReader {
@@ -34,10 +36,20 @@ public class DatabaseReader {
                     .stream()
                     .collect(Collectors.toMap(TableConfig::getName, t -> t));
             List<EntityDefine> entityDefines = new ArrayList<>();
+            Pattern pattern = null;
+            if (!domain.getIgnorePattern().isEmpty()) {
+                pattern = Pattern.compile(domain.getIgnorePattern());
+            }
             while (tableSet.next()) {
                 String tableName = tableSet.getString("TABLE_NAME");
                 if (!domain.isAll() && !tablesConfig.containsKey(tableName)) {
                     continue;
+                }
+                if (pattern != null) {
+                    Matcher matcher = pattern.matcher(tableName);
+                    if (matcher.matches()) {
+                        continue;
+                    }
                 }
 
                 EntityDefine entityDefine = new EntityDefine();
@@ -46,6 +58,11 @@ public class DatabaseReader {
                 tableConfig.setSuffix(domain.getSuffix());
                 entityDefine.setTableConfig(tableConfig);
                 tableConfig.setName(tableName);
+                String className = tableName;
+                if (!domain.getTablePrefix().isEmpty() && className.startsWith(domain.getTablePrefix())) {
+                    className = className.substring(domain.getTablePrefix().length());
+                }
+                tableConfig.setClassName(className);
                 if (tableConfig.getComment() == null) {
                     tableConfig.setComment(tableSet.getString("REMARKS"));
                 }
