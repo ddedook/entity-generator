@@ -24,6 +24,20 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>user-snapshots</id>
+            <name>User Project SNAPSHOTS</name>
+            <url>http://106.15.45.126:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>user-releases</id>
+            <name>User Project Release</name>
+            <url>http://106.15.45.126:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
     <pluginRepositories>
         <pluginRepository>
             <id>nexus</id>
