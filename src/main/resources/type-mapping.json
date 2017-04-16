@@ -25,35 +25,35 @@
   },
   {
     "columnType": "INT",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "INT UNSIGNED",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "TINYINT",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "TINYINT UNSIGNED",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "SMALLINT",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "SMALLINT UNSIGNED",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "MEDIUMINT",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "MEDIUMINT UNSIGNED",
-    "mappedType": "int"
+    "mappedType": "java.lang.Integer"
   },
   {
     "columnType": "BIGINT",
@@ -65,7 +65,7 @@
   },
   {
     "columnType": "BIT",
-    "mappedType": "boolean"
+    "mappedType": "java.lang.Boolean"
   },
   {
     "columnType": "NUMBER",
@@ -77,7 +77,7 @@
     "columnType": "NUMBER",
     "columnSize": 1,
     "decimalDigit": false,
-    "mappedType": "boolean"
+    "mappedType": "java.lang.Boolean"
   },
   {
     "columnType": "DATE",
