@@ -8,8 +8,6 @@ import com.shzisg.generator.output.PropertyDefine;
 
 import java.sql.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class DatabaseReader {
@@ -36,20 +34,13 @@ public class DatabaseReader {
                     .stream()
                     .collect(Collectors.toMap(TableConfig::getName, t -> t));
             List<EntityDefine> entityDefines = new ArrayList<>();
-            Pattern pattern = null;
-            if (!domain.getIgnorePattern().isEmpty()) {
-                pattern = Pattern.compile(domain.getIgnorePattern());
-            }
             while (tableSet.next()) {
                 String tableName = tableSet.getString("TABLE_NAME");
                 if (!domain.isAll() && !tablesConfig.containsKey(tableName)) {
                     continue;
                 }
-                if (pattern != null) {
-                    Matcher matcher = pattern.matcher(tableName);
-                    if (matcher.matches()) {
-                        continue;
-                    }
+                if (domain.isExclude(tableName)) {
+                    continue;
                 }
 
                 EntityDefine entityDefine = new EntityDefine();
