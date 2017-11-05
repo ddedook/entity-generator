@@ -21,6 +21,7 @@ public class ${name} implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  <#if setter && getter>
   <#list properties as prop>
   public ${prop.type} get${prop.name?cap_first}() {
     return ${prop.name};
@@ -63,4 +64,5 @@ public class ${name} implements Serializable {
     </#list>
     return result;
   }
+  </#if>
 }

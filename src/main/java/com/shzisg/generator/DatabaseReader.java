@@ -39,7 +39,7 @@ public class DatabaseReader {
                 if (!domain.isAll() && !tablesConfig.containsKey(tableName)) {
                     continue;
                 }
-                if (domain.isExclude(tableName)) {
+                if (!domain.isInclude(tableName) && domain.isExclude(tableName)) {
                     continue;
                 }
 

@@ -17,6 +17,7 @@ public class DomainConfig {
     private String tablePrefix = "";
     private List<TableConfig> tables = new ArrayList<>();
     private List<Pattern> excludes = new ArrayList<>();
+    private List<Pattern> includes = new ArrayList<>();
     private List<String> defaultIgnores = new ArrayList<>();
     
     public String getUrl() {
@@ -117,8 +118,21 @@ public class DomainConfig {
             .collect(Collectors.toList());
     }
     
+    public List<Pattern> getIncludes() {
+        return includes;
+    }
+    
+    public void setIncludes(List<Pattern> includes) {
+        this.includes = includes;
+    }
+    
+    public boolean isInclude(String tableName) {
+        return includes.stream()
+            .anyMatch(pattern -> pattern.matcher(tableName).matches());
+    }
+    
     public boolean isExclude(String tableName) {
         return excludes.stream()
-            .anyMatch(pattern -> pattern.matcher(tableName).lookingAt());
+            .anyMatch(pattern -> pattern.matcher(tableName).matches());
     }
 }

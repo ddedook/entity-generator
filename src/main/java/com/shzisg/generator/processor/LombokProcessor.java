@@ -11,14 +11,8 @@ public class LombokProcessor implements Processor {
             return domainDefine;
         }
         for (EntityDefine entityDefine : domainDefine.getEntities()) {
-            entityDefine.addDecorator("@Getter");
-            entityDefine.addImport("lombok.Getter");
-            entityDefine.addDecorator("@Setter");
-            entityDefine.addImport("lombok.Setter");
-            entityDefine.addDecorator("@ToString");
-            entityDefine.addImport("lombok.ToString");
-            entityDefine.addDecorator("@EqualsAndHashCode");
-            entityDefine.addImport("lombok.EqualsAndHashCode");
+            entityDefine.addDecorator("@Data");
+            entityDefine.addImport("lombok.Data");
             entityDefine.setSetter(false);
             entityDefine.setGetter(false);
             entityDefine.setEquals(false);

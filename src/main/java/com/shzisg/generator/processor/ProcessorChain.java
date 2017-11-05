@@ -12,7 +12,7 @@ public class ProcessorChain implements Processor {
     public ProcessorChain() {
         processors.add(new NormalProcessor());
         processors.add(new DatabaseProcessor());
-//        processors.add(new LombokProcessor());
+        processors.add(new LombokProcessor());
         processors.add(new JsonProcessor());
         processors.add(new SwaggerProcessor());
     }
